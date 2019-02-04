@@ -1,0 +1,9 @@
+{
+  "eslint.nodePath": "node_modules/eslint-config-airbnb-base/node_modules/eslint",
+  "prettier.eslintIntegration": true,
+  "eslint.enable": true,
+  "eslint.run": "onType",
+  "eslint.autoFixOnSave": true,
+  "git.ignoreLimitWarning": true,
+
+}

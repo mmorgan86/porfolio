@@ -1,0 +1,39 @@
+{
+  "name": "michael-morgan-portfolio",
+  "version": "1.0.0",
+  "description": "Michael Morgan portfolio webpage. He is a web developer located in North Carolina.",
+  "main": "main.js",
+  "scripts": {
+    "lint": "eslint *.js **/*.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "michael",
+    "morgan",
+    "north",
+    "carolina",
+    "nc",
+    "raleigh",
+    "website",
+    "portfolio",
+    "webpage",
+    "hire"
+  ],
+  "author": "Michael Morgan",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1"
+  }
+}
