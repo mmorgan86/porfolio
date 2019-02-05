@@ -502,6 +502,14 @@ img.svg{
 /*---------------------------------------------------*/
 /*	03) ARLO ABOUT
 /*---------------------------------------------------*/
+.technologiesUsed li {
+	list-style: none;
+}
+
+.technologiesUsed li img {
+	width: 20%;
+}
+
 
 .arlo_tm_title_holder{
 	width: 100%;
