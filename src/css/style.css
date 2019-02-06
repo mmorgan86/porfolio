@@ -21,6 +21,9 @@
 /*---------------------------------------------------*/
 /*	01) ARLO BASE
 /*---------------------------------------------------*/
+* {
+	box-sizing: border-box;
+}
 
 html {
 	overflow-x: hidden;
@@ -504,10 +507,11 @@ img.svg{
 /*---------------------------------------------------*/
 .technologiesUsed li {
 	list-style: none;
+	display: inline-block;
 }
 
-.technologiesUsed li img {
-	width: 20%;
+.technologiesUsed li i {
+	font-size: 100px;
 }
 
 
