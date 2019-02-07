@@ -2435,6 +2435,9 @@ img.svg{
 	.arlo_tm_portfolio_single_wrap .title_holder h3{font-size: 45px;}
 }
 @media (max-width: 480px) {
+	/* body {
+		font-size: 22px;
+	} */
 	.arlo_tm_hero_header_wrap .name_holder h3{font-size: 30px;}
 	.arlo_tm_hero_header_wrap .text_typing p{font-size: 18px;}
 	.arlo_tm_title_holder:before{display: none;}

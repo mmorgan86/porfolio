@@ -12,12 +12,13 @@ const gulp = require('gulp'),
       terser = require('gulp-terser');
 
 const root = './',
-      scss = root + 'dist/scss/',
+      css = root + 'src/css/',
       js = root + 'src/js/',
       jsdist = root + 'dist/js/';
+      cssdist = root + 'dist/css';
 
 const jsWatchFiles = root + '**/*.js',
-      styleWatchFiles = root + '**/*.scss';
+      styleWatchFiles = 'src/sass/style.scss';
 
 let jsURL = [
   js + 'init.js',
@@ -29,23 +30,23 @@ let jsURL = [
 ];
 
 let cssURL = [
-  root + 'src/css/plugins.css',
-  root + 'src/css/style.css',
-  root + 'src/css/font/*'
+  root + css + 'plugins.css',
+  root + css + 'style.css',
+  root + css + 'font/*'
 ];
 
-let imgURL = root + 'src/images/*',
-    imgDEST = root + 'dist/images';
+let imgURL = root + 'src/img/**/*',
+    imgDEST = root + 'dist/img';
 
 function sassWrite() {
-  return gulp.src(['./src/sass/**/*.scss'])
+  return gulp.src(['src/sass/style.scss'])
   .pipe(sourcemaps.init({loadMaps: true}))
   .pipe(sass({
     outputStyle: 'expanded'
   }).on('error', sass.logError))
   .pipe(autoprefixer('last 2 versions'))
   .pipe(sourcemaps.write())
-  .pipe(gulp.dest('dist/scss'));
+  .pipe(gulp.dest('src/css/style.css'));
 }
 
 function concatCSS() {
@@ -54,7 +55,7 @@ function concatCSS() {
   .pipe(concat('style.min.css'))
   .pipe(cleanCSS())
   .pipe(sourcemaps.write('./maps/'))
-  .pipe(gulp.dest(scss));
+  .pipe(gulp.dest(cssdist));
 }
 
 function javascript() {
@@ -75,18 +76,24 @@ function imgmin() {
   .pipe(gulp.dest(imgDEST));
 };
 
+function resume() {
+  return gulp.src('src/resume/resume.pdf')
+    .pipe(gulp.dest('dist/resume'));
+};
+
 function watch() {
   browserSync.init({
     server: {
       injectChanges: true,
-      baseDir: "./src"
+      baseDir: "./"
     },
     port: 3000
   });
   gulp.watch(styleWatchFiles, gulp.series(sassWrite, concatCSS));
   gulp.watch(jsURL, javascript);
   gulp.watch(imgURL, imgmin);
-  gulp.watch([jsdist + 'main.js', scss + 'style.min.css']).on('change', reload);
+  gulp.watch('src/resume/resume.pdf', resume);
+  gulp.watch([jsdist + 'main.js', cssdist + 'style.min.css']).on('change', reload);
 }
 
 exports.sassWrite = sassWrite;
@@ -94,6 +101,7 @@ exports.concatCSS = concatCSS;
 exports.javascript = javascript;
 exports.watch = watch;
 exports.imgmin = imgmin;
+exports.resume = resume;
 
 const build = gulp.parallel(watch);
 gulp.task('default', build);
