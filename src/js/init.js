@@ -19,7 +19,7 @@ jQuery(document).ready(function(){
 	arlo_tm_list_height();
 	arlo_tm_portfolio();
 	arlo_tm_anchor();
-	arlo_tm_contact_form();
+	// arlo_tm_contact_form();
 	arlo_tm_owl_carousel();
 	arlo_tm_animate_text();
 	arlo_tm_projects();
@@ -335,6 +335,9 @@ function arlo_tm_contact_form(){
 		var message 	= jQuery(".contact_form #message").val();
 		var subject 	= jQuery(".contact_form #subject").val();
 		var success     = jQuery(".contact_form .returnmessage").data('success');
+		var dataString = 'name='+ name + '&email=' + email + '&message=' + message;
+
+		console.log(name, email, message)
 	
 		jQuery(".contact_form .returnmessage").empty(); //To empty previous error/success message.
 		//checking for blank fields	
@@ -344,27 +347,47 @@ function arlo_tm_contact_form(){
 		}
 		else{
 			// Returns successful data submission message when the entered information is stored in database.
-			jQuery.post("../contactForm/contact.php",{ ajax_name: name, ajax_email: email, ajax_message:message, ajax_subject: subject}, function(data) {
-				
-				jQuery(".contact_form .returnmessage").append(data);//Append returned message to message paragraph
-				
-				
-				if(jQuery(".contact_form .returnmessage span.contact_error").length){
-					jQuery(".contact_form .returnmessage").slideDown(500).delay(2000).slideUp(500);		
-				}else{
-					jQuery(".contact_form .returnmessage").append("<span class='contact_success'>"+ success +"</span>");
-					jQuery(".contact_form .returnmessage").slideDown(500).delay(4000).slideUp(500);
+
+			$.ajax({
+				type: "POST",
+				url: "../src/contactForm/contact.php",
+				data: dataString,
+				success: function(){
+				$('.success').fadeIn(1000);
 				}
-				
-				if(data===""){
-					jQuery("#contact_form")[0].reset();//To reset form fields on success
-				}
-				
 			});
+
+
+			// jQuery.post("../src/contactForm/contact.php",{ ajax_name: name, ajax_email: email, ajax_message:message, ajax_subject: subject}, function(data) {
+				
+			// 	jQuery(".contact_form .returnmessage").append(data);//Append returned message to message paragraph
+				
+				
+			// 	if(jQuery(".contact_form .returnmessage span.contact_error").length){
+			// 		jQuery(".contact_form .returnmessage").slideDown(500).delay(2000).slideUp(500);		
+			// 	}else{
+			// 		jQuery(".contact_form .returnmessage").append("<span class='contact_success'>"+ success +"</span>");
+			// 		jQuery(".contact_form .returnmessage").slideDown(500).delay(4000).slideUp(500);
+			// 	}
+				
+			// 	if(data===""){
+			// 		jQuery("#contact_form")[0].reset();//To reset form fields on success
+			// 	}
+				
+			// });
 		}
 		return false; 
 	});
 }
+
+// -----------------------------------------------------
+// --------------------  GOOGLE CONTACT FORM------------
+// -----------------------------------------------------
+$('#contact_form').on('submit', function(e) {
+  $('#contact_form *').fadeOut(2000);
+  $('#contact_form').prepend('<h2>Thank you for contacting me. I will contact you soon</h2>');
+});
+
 
 // -----------------------------------------------------
 // --------------------    OWL CAROUSEL    -------------

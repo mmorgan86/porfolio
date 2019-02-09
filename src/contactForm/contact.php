@@ -18,7 +18,7 @@ $php_email = filter_var($php_email, FILTER_SANITIZE_EMAIL);
 if (filter_var($php_email, FILTER_VALIDATE_EMAIL)) {
 	
 	
-		$php_subject = "Message from contact form";
+		$php_subject = "Message from your portfolio site.";
 		
 		// To send HTML mail, the Content-type header must be set
 		$php_headers = 'MIME-Version: 1.0' . "\r\n";
@@ -47,5 +47,6 @@ if (filter_var($php_email, FILTER_VALIDATE_EMAIL)) {
 } else {
 	echo "<span class='contact_error'>* Invalid email *</span>";
 }
+
 
 ?>

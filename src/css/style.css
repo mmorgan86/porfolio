@@ -1893,6 +1893,38 @@ img.svg{
     position: relative;
     overflow: hidden;
 }
+
+.arlo_tm_contact_wrap .arlo_tm_button button{
+	text-decoration: none;
+    color: #fff;
+    background-color: #E3872D;
+    font-weight: 600;
+    font-family: "Montserrat";
+    padding: 12px 35px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.arlo_tm_contact_wrap .arlo_tm_button button:before{
+	position: absolute;
+    content: "";
+    top: 0px;
+    height: 100%;
+    left: -25%;
+    width: 0%;
+    background-color: #1995AD;
+    transform: skew(50deg);
+    transition-duration: .6s;
+    z-index: 1;
+}
+.arlo_tm_contact_wrap .arlo_tm_button button:hover:before{width: 170%;}
+.arlo_tm_contact_wrap .arlo_tm_button button span{
+	position: relative;
+	z-index: 2;
+}
+
 .arlo_tm_contact_wrap .arlo_tm_button a:before{
 	position: absolute;
     content: "";
