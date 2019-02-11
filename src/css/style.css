@@ -1141,6 +1141,62 @@ img.svg{
 /*	06) ARLO PORTFOLIO
 /*---------------------------------------------------*/
 
+.project-wrapper {
+	box-sizing: content-box !important;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	margin-bottom: 30px;
+}
+
+.project-details-wrapper {
+	font-weight: 300;
+	height: 100%;
+	width: inherit;
+	position: absolute;
+	z-index: 1;
+	top: 18vw;
+	padding: 3.4vw 3.4vw;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-ms-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+	color: white;
+	background-color: rgba(32,32,32,0.9);
+}
+
+.project-details-wrapper h6 {
+	text-align: center;
+}
+
+.technology-wrapper ul {
+	list-style-position: inside;
+	padding-left:5vw;
+}
+.project-details-wrapper:hover {
+	background-color:rgba(32,32,32,0.9);
+}
+
+.project-wrapper .project-overlay {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	opacity: 0.3;
+	z-index: 0;
+	top: 0;
+}
+
+.project-wrapper:hover .project-overlay {
+	opacity: 0.7;
+}
+
+.project-wrapper:hover .project-details-wrapper {
+	top: 0;
+}
+
+
 .arlo_tm_title_holder.portfolio{padding-bottom: 90px;}
 .arlo_tm_portfolio_wrapper_all{
 	width: 100%;
@@ -1210,7 +1266,7 @@ img.svg{
 			box-sizing: border-box; /* Opera/IE 8+ */
 }
 .arlo_tm_portfolio_list > li{
-	width:33.3333%;
+	width:33.33332%;
 	float:left;
 	position:relative;
 	margin: 0px 0px 30px 0px;
@@ -2093,43 +2149,6 @@ img.svg{
 /*---------------------------------------------------*/
 /*	13) ARLO PORTFOLIO SINGLE
 /*---------------------------------------------------*/
-.maincontainer {
-	position: relative;
-	width: 350px;
-	height: 200px;
-}
-
-.thecard {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	transform-style: preserve-3d;
-	transition: all 0.8s ease;
-}
-
-.thecard:hover {
-	transform: rotateY(180deg);
-}
-
-.thefront {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	backface-visibility: hidden;
-	background: pink;
-	color: white;
-}
-
-.theback {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	backface-visibility: hidden;
-	background: red;
-	color: white;
-	transform: rotateY(180deg);
-}
-
 
 .arlo_tm_portfolio_single_wrap{
 	width: 100%;
@@ -2382,7 +2401,7 @@ img.svg{
 	height: auto;
 	clear: both;
 	float: left;
-	background-color: rgba(4,18,48,.97);
+	background-color: #1995AD;
 	padding: 30px 20px;
 	display: none;
 	border-bottom: 1px solid rgba(0,0,0,.09);
@@ -2414,6 +2433,12 @@ img.svg{
 	font-family: "Montserrat";
 	font-weight: 600;
 	font-size: 19px;
+}
+
+.arlo_tm_mobile_menu_wrap .mob_menu > ul > li a:hover {
+	text-decoration: underline;
+	color: #E3872D;
+	
 }
 
 /*---------------------------------------------------*/
